@@ -20,6 +20,8 @@ jobs:
     # maquina que o job vai executar
     runs-on: ['ubuntu-latest']
 
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     # passo a passo das acoes do job
     steps:
 
