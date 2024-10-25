@@ -1,4 +1,4 @@
-# CI de Nível 04 - Execução Integrada
+# CI de Nível 04 - Disparo dentro do fluxo de CI de desenvolvimento
 
 # nome que vai aparecer la nas opções de pipe
 name: 'Execução Integrada'
@@ -10,6 +10,28 @@ on:
   workflow_dispatch:
 
 jobs:
+  # - baixar as dependencias
+  # - compilar
+  # - testar
+  inspection:
+    # maquina que vai rodar
+    runs-on: ubuntu-latest
+
+    #passo a paso das acoes do job
+    steps:
+      # - run: echo 'Execucao manual'
+      - uses: actions/checkout@v4
+      # - uses: actions/setup-node@v4
+      #     with:
+      #         node-version: lts/*
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      - name: Instalando dependências
+        run: yarn
+
+      - name: Padronizaacaop de codigo
+        run: yarn lint
   # descricao do job
   e2e-tests:
     # maquina que o job vai executar
@@ -28,9 +50,6 @@ jobs:
 
       - name: Instalando dependências
         run: yarn
-
-      - name: Padronização de código (Lint)
-        run: yarn lint
 
       - name: Instalando Playwright
         run: yarn playwright install
