@@ -8,15 +8,13 @@ name: 'Execução por Deploy'
 
 on:
   workflow_run:
-    workflows: ['Execução Manual'] 
+    workflows: ['Execução Manual']
     types:
       - completed
-    
-jobs:
 
+jobs:
   # descricao do job
   e2e-tests:
-
     # maquina que o job vai executar
     runs-on: ['ubuntu-latest']
 
@@ -24,7 +22,6 @@ jobs:
 
     # passo a passo das acoes do job
     steps:
-
       - uses: actions/checkout@v4
 
       # - uses: actions/setup-node@v4
@@ -37,16 +34,15 @@ jobs:
       - name: Instalando dependências
         run: yarn
 
-      - name: Instalando Playwright 
-        run: yarn playwright install 
+      - name: Instalando Playwright
+        run: yarn playwright install
 
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
 
       # passed, faled, cancelled
       - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }} 
+        if: ${{ !cancelled() }}
         with:
           name: relatorio-de-testes
-          path: ./playwright-report  
- 
+          path: ./playwright-report
