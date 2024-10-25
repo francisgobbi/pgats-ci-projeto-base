@@ -1,7 +1,7 @@
 # CI de Nível 04 - Execução Integrada
 
 # nome que vai aparecer la nas opções de pipe
-name: 'Execução Manual'
+name: 'Execução Integrada'
 
 # regras de disparo da execucao (triggers/gatilhos)
 # gatilho de exec manual = workflow_dispatch
