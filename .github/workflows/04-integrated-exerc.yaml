@@ -36,7 +36,7 @@ jobs:
   unit:
     # maquina que vai rodar
     runs-on: ubuntu-latest
-
+    needs: [inspection]
     #passo a paso das acoes do job
     steps:
       # - run: echo 'Execucao manual'
@@ -57,7 +57,7 @@ jobs:
   e2e-tests:
     # maquina que o job vai executar
     runs-on: ['ubuntu-latest']
-
+    needs: [unit]
     # passo a passo das acoes do job
     steps:
       - uses: actions/checkout@v4
@@ -89,3 +89,8 @@ jobs:
         with:
           name: relatorio-de-testes
           path: ./playwright-report
+
+  deploy:
+  # maquina que vai rodar
+    runs-on: ubuntu-latest
+    needs: [e2e-tests]
