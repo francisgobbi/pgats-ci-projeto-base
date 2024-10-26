@@ -32,6 +32,7 @@ jobs:
 
       - name: Padronizaacaop de codigo
         run: yarn lint
+  
   unit:
     # maquina que vai rodar
     runs-on: ubuntu-latest
