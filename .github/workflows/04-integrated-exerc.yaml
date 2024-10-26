@@ -33,7 +33,7 @@ jobs:
       - name: Padronizaacaop de codigo
         run: yarn lint
   unit:
-   # maquina que vai rodar
+    # maquina que vai rodar
     runs-on: ubuntu-latest
 
     #passo a paso das acoes do job
@@ -52,7 +52,6 @@ jobs:
       - name: Testes de Unidade
         run: yarn run test
 
- 
   # descricao do job
   e2e-tests:
     # maquina que o job vai executar
