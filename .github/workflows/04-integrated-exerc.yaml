@@ -32,7 +32,7 @@ jobs:
 
       - name: Padronizaacaop de codigo
         run: yarn lint
-  
+
   unit:
     # maquina que vai rodar
     runs-on: ubuntu-latest
@@ -75,8 +75,8 @@ jobs:
       - name: Instalando Playwright
         run: yarn playwright install
 
-      - name: Subir aplicação localmente  
-        run: yarn start &   
+      - name: Subir aplicação localmente
+        run: yarn start &
 
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
